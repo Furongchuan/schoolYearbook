@@ -30,9 +30,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(baseUrl + '/', jsonFormat)
 
 app.use(baseUrl + '/', indexRouter);
-app.use(baseUrl + '/classmate', classmateRouter);
-app.use('/sockjs-node',socketRouter)
+app.use('/ws',socketRouter)
 
+// app.listen(8080);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

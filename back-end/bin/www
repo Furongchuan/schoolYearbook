@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('back-end:server');
 var http = require('http');
+var expressWs = require('express-ws');
 
 /**
  * Get port from environment and store in Express.
@@ -28,7 +29,7 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
+expressWs(app,server)
 /**
  * Normalize a port into a number, string, or false.
  */

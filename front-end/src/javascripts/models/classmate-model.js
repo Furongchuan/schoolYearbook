@@ -19,21 +19,14 @@ const postChatMessage = (data) => {
         }
     })
 }
-function useWebsocket() {
-    let socket = new WebSocket('ws://localhost:3000/sockjs-node/websocket');
-    socket.addEventListener('open', function (event) {
-        console.log('socket is open')
-    });
-    socket.addEventListener('close', function (event) {
-        console.log('socket is close')
-    });
-    socket.addEventListener('message', function (event) {
-        console.log('Message from server', event.data);
-    })
+// 简历websocket连接
+function connectionWebsocket() {
+    let socket = new WebSocket('ws://localhost:3000/ws/chat');
+    return socket;
 }
 
 export  {
     getClassmateItems,
     postChatMessage,
-    useWebsocket
+    connectionWebsocket
 }

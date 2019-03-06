@@ -14,34 +14,26 @@ const getClassmateItems = async (req, res, next) => {
   }
  
 }
-// 处理保存的聊天信息
-const postChatMessage = async (req, res, next) => {
-  let { name, message } = req.body;
-  if( name && message ){
-    try {
-      let date = moment(Date.now()).format('Do MMM h:mm a');
-      let data = await classmateModel.postChatMessage({ 
-        name, message, date
-      })
-      next('success')
-    }catch(e){
-      console.log('postChatMessage',e)
-      next('error')
-    }
-  }
-}
+
 // 聊天室websocket连接
-const wsChatMessage = (ws, req) => {
-  ws.send('你连接成功了')
-  console.log(1)
-  ws.on('message', (msg) => {
-    console.log(msg)
+const wsChatMessage = async (ws, req) => {
+  // 建立连接后发送聊天信息
+  let chatMessage = await classmateModel.getChatMessage();
+  console.log(chatMessage)
+  ws.send(JSON.stringify(chatMessage));
+  // 处理收到的的聊天信息
+  ws.on('message', async (msg) => {
+    let { name, message } = JSON.parse(msg);
+    let date = moment(Date.now()).format('Do MMM h:mm a');
+    let data = await classmateModel.postChatMessage({ 
+      name, message, date
+    })
+    ws.send(msg)
   })
 }
 
 
 module.exports = {
   getClassmateItems,
-  postChatMessage,
   wsChatMessage
 }

@@ -3,9 +3,9 @@ const router = express.Router()
 const expressWs = require('express-ws')
 const classmateController = require('../controllers/classmate')
 // const { response } = require('../middlewares')
-expressWs(express);
+expressWs(router);
 
 // 聊天室websocket
-router.ws('/websocket',classmateController.wsChatMessage)
+router.ws('/chat',classmateController.wsChatMessage)
 
 module.exports = router

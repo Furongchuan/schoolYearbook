@@ -30,6 +30,10 @@ let classmateChatSchema = SchemaFactory({
 const getClassmateItems =  () => {
   return classmateItemSchema.find({}).exec();
 }
+// 获取聊天信息
+const getChatMessage = () => {
+  return classmateChatSchema.find({}).exec();
+}
 // 发送聊天信息
 const postChatMessage = (params) => {
   return classmateChatSchema.insertMany(params)
@@ -38,5 +42,6 @@ const postChatMessage = (params) => {
 
 module.exports = { 
   getClassmateItems,
-  postChatMessage
+  postChatMessage,
+  getChatMessage
 }
