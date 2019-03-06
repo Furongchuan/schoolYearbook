@@ -2,14 +2,15 @@
 import request from '@utils/request'
 
 // 获取同学录信息
-const getClassmateItems = () => {
+const getClassmateItems = (data) => {
     return request({
-        url: '/api/v1/classmate/items'
+        url: '/api/v1/classmate/items',
+        data
     })
 }
 
 
-// 简历websocket连接
+// 建立websocket连接
 function connectionWebsocket() {
     let socket = new WebSocket('ws://localhost:3000/ws/chat');
     return socket;

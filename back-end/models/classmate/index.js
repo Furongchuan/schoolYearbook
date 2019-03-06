@@ -26,13 +26,35 @@ let classmateChatSchema = SchemaFactory({
   date: String
 },'chat')
 
+const geTotalPage = () => {
+  return classmateItemSchema.find({}).count()
+}
+
 // 获取同学信息
-const getClassmateItems =  () => {
-  return classmateItemSchema.find({}).exec();
+// pageSize(每页几条数据), pageNo(当前页数)
+const getClassmateItems =  async ({ 
+  pageSize, pageNo 
+}) => {
+  let count = await geTotalPage();
+  // 页码信息
+  let pages = {
+    totalPage: Math.ceil(count / pageSize), // 总页数
+    totalNo: count // 总数量
+  }
+  return classmateItemSchema
+          .find({})
+          .limit(~~pageSize)
+          .skip((pageNo - 1) * pageSize)
+          .then(res => {
+            return {
+              items: res,
+              pages
+            }
+          })
 }
 // 获取聊天信息
 const getChatMessage = () => {
-  return classmateChatSchema.find({}).exec();
+  return classmateChatSchema.find({})
 }
 // 发送聊天信息
 const postChatMessage = (params) => {

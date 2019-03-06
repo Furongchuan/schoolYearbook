@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const expressWs = require('express-ws')
-const classmateController = require('../controllers/classmate')
+const classmateController = require('../controllers/activity')
 // const { response } = require('../middlewares')
 expressWs(router);
 

@@ -17,10 +17,19 @@ api-server： http://localhost: 3000
 请求参数说明：
     * page ....
 响应参数说明：
+    * items 用户信息集合
     * name 用户名字
-    * telephone 电话号码。。。
+    * telephone 电话号码
+    * eMail 邮箱
+    * weChat 微信号
+    * nowPlace 目前所在地
+    * headImg 头像路径
 
-### 同学录聊天接口
+    * pages 页数信息集合
+    * totalNo 总数据数
+    * totalPage 总页数
+
+#### 同学录聊天接口
 1. 聊天室websoncet连接
 接口地址：/ws/chat
 请求方式：websocket
