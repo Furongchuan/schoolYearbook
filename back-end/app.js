@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(baseUrl + '/', jsonFormat)
 
 app.use(baseUrl + '/', indexRouter);
+app.use(baseUrl + '/classmate', classmateRouter);
 app.use('/ws',socketRouter)
 
 // app.listen(8080);
