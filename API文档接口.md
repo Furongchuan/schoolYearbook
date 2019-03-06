@@ -19,3 +19,16 @@ api-server： http://localhost: 3000
 响应参数说明：
     * name 用户名字
     * telephone 电话号码。。。
+
+### 同学录聊天接口
+1. 聊天室websoncet连接
+接口地址：/ws/chat
+请求方式：websocket
+请求示例：http://localhost:3000/ws/chat
+发送参数说明：
+    * name 用户姓名
+    * message 用户聊天发送的信息
+接受参数说明：
+    * name 用户姓名
+    * message 用户聊天发送的信息
+    * data 信息发送时间

@@ -8,7 +8,6 @@ const render = async (req, res, next) => {
             items: data
         })
     )
-    // res.render(appClassmateItems)
 }
  
 export default {

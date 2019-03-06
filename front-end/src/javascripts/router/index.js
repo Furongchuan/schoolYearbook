@@ -2,7 +2,7 @@
 import SMERouter from 'sme-router'
 import angel from '@utils/angel'
 import appHomeController from '@controllers/home/app-home-controller'
-import appClassmateChatController from '@controllers/classmate/app-classmate-chat-controller'
+import appActivityChatController from '@controllers/activity/app-activity-chat-controller'
 import appClassmateItemsController from '@controllers/classmate/app-classmate-items-controller'
 
 
@@ -21,9 +21,9 @@ const init = () => {
 
     // 当路由匹配到/home的时候router-view中渲染
     router.route('/home', appHomeController.render)
-    router.route('/classmate/chat', appClassmateChatController.render)
+    router.route('/activity/chat', appActivityChatController.render)
     router.route('/classmate/items', appClassmateItemsController.render)
-
+    router.route('/classmate/photo', appClassmateItemsController.render)
     // 默认路由 
     router.route('*', (req, res, next) => {
         res.redirect('/home')
