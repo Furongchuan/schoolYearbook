@@ -1,0 +1,31 @@
+
+@import './date-picker';
+
+.main-slidebar {
+    .sidebar-menu {
+        cursor: pointer;
+    }
+}
+.movie-items {
+    table {
+        th {
+            text-align: center;
+        }
+        tr td {
+            text-align: center;
+            overflow: hidden;
+            vertical-align: middle;
+        }
+        td.img img {
+            // display: block;
+            height: 60px;
+        }
+    }
+}
+
+
+.date_selector {
+    left: 0!important;
+    top: 35px!important;
+    width: 270px;
+}
