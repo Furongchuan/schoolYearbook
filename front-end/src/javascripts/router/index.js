@@ -5,7 +5,7 @@ import appHomeController from '@controllers/home/app-home-controller'
 import appActivityChatController from '@controllers/activity/app-activity-chat-controller'
 import appClassmateItemsController from '@controllers/classmate/app-classmate-items-controller'
 import appClassmatePhotoController from '@controllers/classmate/app-classmate-photo-controller'
-
+import appPersonalSetContorller from '@controllers/personal/app-personal-set-controller'
 // 路由初始化函数
 const init = () => {
 
@@ -25,6 +25,7 @@ const init = () => {
     router.route('/activity/chat', appActivityChatController.render)
     router.route('/classmate/items', appClassmateItemsController.render)
     router.route('/classmate/photo', appClassmatePhotoController.render)
+    router.route('/personal/set', appPersonalSetContorller.render)
     // 默认路由 
     router.route('*', (req, res, next) => {
         res.redirect('/home')

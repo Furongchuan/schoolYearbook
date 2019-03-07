@@ -1,0 +1,52 @@
+<div class="box box-primary">
+
+  <form role="form" id="publish-form">
+    <div class="box-body">
+      <div class="form-group">
+        <label for="item-title">姓名：</label>
+        <input required type="text" value = "" class="form-control" id="set-name" placeholder="姓名" AUTOCOMPLETE="off">
+      </div>
+      <div class="form-group">
+        <label for="item-star">电话：</label>
+        <input required value = "" type="text" class="form-control" id="set-phone" placeholder="电话" AUTOCOMPLETE="off">
+      </div>
+      <div class="form-group">
+        <label for="item-star">邮箱：</label>
+        <input required value = "" type="text" class="form-control" id="set-weChat" placeholder="邮箱" AUTOCOMPLETE="off">
+      </div>
+      <div class="form-group">
+        <label for="item-star">所在地：</label>
+        <input required value = "" type="text" class="form-control" id="set-eMail" placeholder="所在地" AUTOCOMPLETE="off">
+      </div>
+      <div class="form-group">
+        <label for="item-star">工作：</label>
+        <input required value = "" type="text" class="form-control" id="set-job " placeholder="工作" AUTOCOMPLETE="off">
+      </div>
+      <div class="form-group">
+        <label>院系</label>
+        <select class="form-control">
+        {{each items}}
+          <option>{{$value.scienceName}}</option>
+        {{/each}}
+        </select>
+      </div>     
+        <!-- /.input group -->
+      <div class="form-group">
+        <label for="item-title">头像：</label>
+        <button type="button" class="btn btn-primary img-btn">重新上传</button>
+        <input type="file" class="hidden" id="item-img" >
+
+        <div class="row publish-img-box" >
+          <img class="profile-user-img img-responsive img-circle" src="http://localhost:3000/images/uoload/v2-4f2c2235830db1a336ac27dd08a2f438_r.jpg" alt="User profile picture">   
+        </div>
+      </div>
+    </div>
+      
+    </div>
+    <!-- /.box-body -->
+
+    <div class="box-footer">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
