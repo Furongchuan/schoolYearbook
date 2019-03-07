@@ -5,7 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'none',
   entry: {
-    index: './src/javascripts/index'
+    index: './src/javascripts/index',
+    admin: './src/javascripts/admin'
   },
   output: {
     filename: '[name].js',
@@ -29,7 +30,12 @@ module.exports = {
         template: './src/index.html',
         filename: 'index.html',
         chunks: ['index']
-    })
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/admin.html',
+      filename: 'admin.html',
+      chunks: ['admin']
+  })
   ],
   module: {
     rules: [
