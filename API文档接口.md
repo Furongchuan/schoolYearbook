@@ -15,7 +15,7 @@ api-server： http://localhost: 3000
 请求方式：get
 请求示例：http://localhost:3000/api/v1/classmate/items
 请求参数说明：
-    * page ....
+    * page 
 响应参数说明：
     * items 用户信息集合
     * name 用户名字

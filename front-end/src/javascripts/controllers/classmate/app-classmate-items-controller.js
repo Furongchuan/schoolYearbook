@@ -3,7 +3,7 @@ import appClassmateItems from '@views/routes/app-classmate-items.html'
 import appClassmateItemsContent from '@views/routes/app-classmate-items-collection.html'
 import { getClassmateItems } from '@models/classmate-model'
 
-let pageSize = 12; // 页码
+let pageSize = 12; // 展示数据数量
 let pageNo = 1; // 当前页数
 let pages = null // 页面信息
 const render = async (req, res, next) => { 
@@ -17,8 +17,10 @@ const render = async (req, res, next) => {
         backfun: function(e){
             pageNo = e.current
             renderItems()
+            $('.zxfinput').val(pages.totalPage)
         }
     })
+    $('.zxfinput').val(pages.totalPage)
 }
 // 
 function renderItems() {
@@ -32,7 +34,7 @@ function renderItems() {
         template.compile(appClassmateItemsContent)({
             items: data.items
         }))
-        resolve(data)
+    resolve(data)
     })
 }
  
