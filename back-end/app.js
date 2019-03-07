@@ -12,6 +12,7 @@ var {
 } = require('./config')
 var indexRouter = require('./routes/index');
 var classmateRouter = require('./routes/classmate');
+var personalRouter = require('./routes/personal')
 var socketRouter = require('./routes/socket');
 var app = express();
 expressWs(app);
@@ -31,6 +32,7 @@ app.use(baseUrl + '/', jsonFormat)
 
 app.use(baseUrl + '/', indexRouter);
 app.use(baseUrl + '/classmate', classmateRouter);
+app.use(baseUrl + '/personal', personalRouter);
 app.use('/ws',socketRouter)
 
 // app.listen(8080);

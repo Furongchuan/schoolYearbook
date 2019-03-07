@@ -15,8 +15,9 @@ let classmateItemSchema = SchemaFactory({
   name: String,
   telephone:Number,
   eMail: String,
-  weChat: String,
-  nowPlace: String
+  nowPlace: String,
+  headImg: String,
+  job: String
 },'item');
 
 // 同学录chat Schema
@@ -25,6 +26,10 @@ let classmateChatSchema = SchemaFactory({
   message: String,
   date: String
 },'chat')
+
+let classmateScienceSchema = SchemaFactory({
+  scienceName: String
+},'science')
 
 const geTotalPage = () => {
   return classmateItemSchema.find({}).count()
@@ -52,6 +57,12 @@ const getClassmateItems =  async ({
             }
           })
 }
+
+// 获取院系信息
+const getClassmateScience = () => {
+  return classmateScienceSchema.find({})
+}
+
 // 获取聊天信息
 const getChatMessage = () => {
   return classmateChatSchema.find({})
@@ -64,6 +75,7 @@ const postChatMessage = (params) => {
 
 module.exports = { 
   getClassmateItems,
+  getClassmateScience,
   postChatMessage,
   getChatMessage
 }

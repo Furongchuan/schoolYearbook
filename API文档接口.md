@@ -15,22 +15,26 @@ api-server： http://localhost: 3000
 请求方式：get
 请求示例：http://localhost:3000/api/v1/classmate/items
 请求参数说明：
-    * page 
+    * pageSize 请求数据长度
+    * pageNo 当前页码数 
 响应参数说明：
     * items 用户信息集合
-    * name 用户名字
-    * telephone 电话号码
-    * eMail 邮箱
-    * weChat 微信号
-    * nowPlace 目前所在地
-    * headImg 头像路径
+        * name 用户名字
+        * telephone 电话号码
+        * eMail 邮箱
+        * nowPlace 目前所在地
+        * headImg 头像路径
+        * user 用户账户名
+        * job 工作
 
     * pages 页数信息集合
-    * totalNo 总数据数
-    * totalPage 总页数
+        * totalNo 总数据数
+        * totalPage 总页数
 
 #### 同学录聊天接口
+
 1. 聊天室websoncet连接
+
 接口地址：/ws/chat
 请求方式：websocket
 请求示例：http://localhost:3000/ws/chat
@@ -41,3 +45,21 @@ api-server： http://localhost: 3000
     * name 用户姓名
     * message 用户聊天发送的信息
     * data 信息发送时间
+
+#### 个人信息接口
+
+1. 获取院系名
+
+接口地址： /personal/science
+请求方式： get
+请求示例：http://localhost:3000/api/v1/personal/science
+响应参数说明
+    * scienceName 院系名称
+
+2. 获取当前登录用户的用户信息
+接口地址： /personal/users
+请求方式： get
+请求示例：http://localhost:3000/api/v1/personal/users
+请求参数说明：
+    * user 当前登录用户的用户名
+    * 
