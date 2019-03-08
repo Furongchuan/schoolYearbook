@@ -1,4 +1,7 @@
-(() => {
+import router from  '@router/admin';
+
+router.init()
+/* (() => {
   let targetType = 'login' // 当前显示的类型
 
   // 用到的dom元素
@@ -35,9 +38,9 @@
     // 注册
     $registerForm.submit(register)
     // 登录
-    // $loginForm.submit(login)
+    $loginForm.submit(login)
     // 点击切换验证码
-    // $code.click(getCode)
+    $code.click(getCode)
   }
 
   
@@ -62,6 +65,36 @@
     })
   }
 
+  function login (e) { // 登录逻辑
+    e.preventDefault()
+    let username = $loginInps.username.val()
+    let password = $loginInps.password.val()
+    let code = $loginInps.code.val()
+    
+    $.ajax({
+        url: '/api/v1/users/login',
+        type: 'post',
+        data: {
+            username,
+            password,
+            code
+        }
+    }).done(function(res) {
+        if ( res.code === 200 ) {
+            window.location.href = '/'
+        } else {
+            getCode() // 如果登录失败更改验证码
+        }
+        console.log(res)
+    })
+  }
+  function getCode () { // 验证码
+    $.ajax({url: '/api/v1/users/code'})
+            .done(res => {
+                $code.html(res.img)
+                $.cookie('mark', res.mark)
+            })
+  }
   function changeType (type) { // 切换类型
     targetType = type
     renderTargetForm()
@@ -75,7 +108,7 @@
         $loginFormBox.removeClass('hidden')
         $registerFormBox.addClass('hidden')
 
-        // getCode() // 获取验证码
+        getCode() // 获取验证码
     }
   }
-})()
+})() */

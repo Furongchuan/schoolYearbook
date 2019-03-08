@@ -13,7 +13,8 @@ let movieItemSchema = new mongoose.Schema({
   eMail: String,
   nowPlace: String,
   headImg: String,
-  job: String
+  job: String,
+  scienceName: String
 });
 // 单数会自动加s （集合）
 let Users = mongoose.model('users', userItemSchema);
@@ -27,14 +28,14 @@ const checkAlready = (option) => {
 const register = (params) => {
     let item = {
       name: params.nickname,
-      telephone: '',
-      eMail: 'eMail',
-      nowPlace: 'nowPlace',
+      telephone: '请填写电话号码',
+      eMail: '请填写邮箱',
+      nowPlace: '请填写当前居住地',
       headImg: 'http://localhost:3000/images/uoload/v2-4f2c2235830db1a336ac27dd08a2f438_r.jpg',
-      job: 'job'
+      job: '请填写当前工作',
+      scienceName: params.scienceName
     }
-    Items.insertMany(item)
-    return Users.insertMany(params)
+    return Items.insertMany(item)
 }
 
 module.exports = { 

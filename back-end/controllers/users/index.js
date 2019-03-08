@@ -1,8 +1,8 @@
 const usersModel = require('../../models/users');
+const { Decrypt } = require('../../modules/crypto');
 
 const register = async (req, res, next) => {
-  console.log(req.body)
-  // 查看是否已经有这个用户
+
   // 查看用户名是否已存在   
   let usernameExist = await usersModel.checkAlready({ username: req.body.username })
   if ( usernameExist.length ) { // 已经有用户存在了
@@ -18,8 +18,30 @@ const register = async (req, res, next) => {
       console.log(e)
       next('error')
     }
+}
+
+const login = async (req, res, next) => {
+  let text = Decrypt(req.cookies.mark)
+  if ( req.body.code.toLowerCase() !== text ) {
+      // 验证码不正确
+      next('code wrong')
+      return false
   }
 
+  let usernameExist = await usersModel.checkAlready({ username: req.body.username })
+  if ( !usernameExist.length ) { // 没有用户
+      next('username unexist')
+      return false
+  }
+  // 密码错误
+  if ( usernameExist[0].password !== req.body.password ) {
+      next('unreal password')
+      return false;
+  }
+  next('success')
+}
+
 module.exports = {
-  register
+  register,
+  login
 }

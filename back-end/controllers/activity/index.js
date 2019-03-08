@@ -5,7 +5,6 @@ const moment = require('moment')
 const wsChatMessage = async (ws, req) => {
   // 建立连接后发送聊天信息
   let chatMessage = await classmateModel.getChatMessage();
-  console.log(chatMessage)
   ws.send(JSON.stringify(chatMessage));
   // 处理收到的的聊天信息
   ws.on('message', async (msg) => {

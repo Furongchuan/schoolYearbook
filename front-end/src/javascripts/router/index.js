@@ -19,7 +19,7 @@ const init = () => {
     
 
 
-    // 当路由匹配到/home的时候router-view中渲染
+    // 路由匹配
     router.route('/home', appHomeController.render)
     router.route('/personal',appHomeController.render)
     router.route('/activity/chat', appActivityChatController.render)
@@ -37,7 +37,8 @@ const init = () => {
         
     })
 
-    angel.on('go', router.go.bind(router))
+    angel.on('go', router.go.bind(router));
+    angel.on('back', router.back.bind(router))
 
 }
 

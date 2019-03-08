@@ -6,18 +6,38 @@ api-server： http://localhost: 3000
 
 当前版本： v1
 
-#### 注册接口
+#### 登录注册接口
 
 1. 注册
 
 接口地址：/users/register
 返回格式：json
 请求方式：post
-请求示例：http://localhost:3000//api/v1/users/register
+请求示例：http://localhost:3000/api/v1/users/register
 请求参数说明：
     * username 账号
     * password 密码 
     * nickname 用户名 
+
+2. 登录
+
+接口地址：/users/login
+返回格式：json
+请求方式：post
+请求示例：http://localhost:3000/api/v1/users/login
+请求参数说明：
+    * username 账号
+    * password 密码 
+    * code 验证码
+
+3. 验证码
+接口地址：/users/code
+返回格式：json
+请求方式：post
+请求示例：http://localhost:3000/api/v1/users/code
+响应参数说明：
+    * img 验证码图片
+    * mark 加密后的验证码
 
 #### 同学录信息接口
 
@@ -75,4 +95,3 @@ api-server： http://localhost: 3000
 请求示例：http://localhost:3000/api/v1/personal/users
 请求参数说明：
     * user 当前登录用户的用户名
-    * 

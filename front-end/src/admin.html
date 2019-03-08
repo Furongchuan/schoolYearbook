@@ -9,9 +9,10 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/static/adminLTE/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="/static/adminLTE/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/static/adminLTE/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/static/adminLTE/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="/static/libs/jqueryToast/css/toast.style.css">
 
 
 
@@ -22,73 +23,9 @@
     <b>山川</b>同学录系统
   </div>
   <!-- /.login-logo -->
-  <div class="login-box-body">
-    <div class="login hidden">
-        <p class="login-box-msg">登录</p>
-        <form id="login-form">
-        <div class="form-group has-feedback">
-            <input id="login-username" type="text" class="form-control" placeholder="请输入用户名">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        </div>
-        
-        <div class="form-group has-feedback">
-            <input id="login-password" type="password" class="form-control" placeholder="请输入密码">
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        </div>
-        <div class="form-group has-feedback">
-            <div class="row">
-                <div class="col-xs-6">
-                    <input id="login-code" type="text" class="form-control" placeholder="请输入验证码">
-                </div>
-                <div class="col-xs-4 code" >
-                    
-                </div>
-            </div>
-            
-            
-        </div>
-        <div class="row">
-            <!-- /.col -->
-            <div class="col-xs-4 pull-left">
-                <button type="submit" class="btn btn-primary btn-block btn-flat">提交</button>
-            </div>
-            <div class="col-xs-4 pull-right">
-                <button data-type="register" type="button" class="btn btn-default btn-block btn-flat btn-change-type">去注册</button>
-            </div>
-            <!-- /.col -->
-        </div>
-        </form>
-    </div>
-    <div class="register">
-        <p class="login-box-msg">注册</p>
-        <form id="register-form">
-        <div class="form-group has-feedback">
-            <input required id="register-username" type="text" class="form-control" placeholder="请输入用户名">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        </div>
-        <div class="form-group has-feedback">
-            <input required id="register-password" type="password" class="form-control" placeholder="请输入密码">
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        </div>
-        <div class="form-group has-feedback">
-            <input required id="register-nickname" type="text" class="form-control" placeholder="请输入昵称">
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        </div>
-        <div class="row">
-            <!-- /.col -->
-            <div class="col-xs-4 pull-left">
-                <button type="submit" class="btn btn-primary btn-block btn-flat">提交</button>
-            </div>
-            <div class="col-xs-4 pull-right">
-                <button type="button" data-type="login" class="btn btn-default btn-block btn-flat btn-change-type">去登录</button>
-            </div>
-            <!-- /.col -->
-        </div>
-        </form>
-    </div>
-
-    
-
+  <div class="login-box-body" id="router-view">
+  
+   
   </div>
   <!-- /.login-box-body -->
 </div>
@@ -97,6 +34,7 @@
 <!-- jQuery 2.2.3 -->
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/static/libs/template.js"></script>
 <script>
   
 </script>
