@@ -7,6 +7,10 @@ const request = (options) => {
             ...options,
             success: (res) =>  {
                 if ( res.code >= 200 && res.code < 300 || res.code === 304 ) {
+                    if(res.code != 200 ){
+                        $.Toast('Warning', res.msg, 'warning')
+                        resolve(false)
+                    }
                     // 成功处理
                     // $.Toast('Success', '数据请求成功', 'success')
                     resolve(res.data)

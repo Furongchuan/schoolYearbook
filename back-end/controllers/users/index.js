@@ -23,9 +23,10 @@ const register = async (req, res, next) => {
 const login = async (req, res, next) => {
   let text = Decrypt(req.cookies.mark)
   if ( req.body.code.toLowerCase() !== text ) {
-      // 验证码不正确
-      next('code wrong')
-      return false
+    
+    // 验证码不正确
+    next('code wrong')
+    return false
   }
 
   let usernameExist = await usersModel.checkAlready({ username: req.body.username })

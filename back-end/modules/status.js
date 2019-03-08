@@ -25,11 +25,11 @@ const status = {
         msg: '昵称已经存在'
     },
     'username unexist': {
-        code: '204',
+        code: '205',
         msg: '用户名不存在'
     },
     'unreal password': {
-        code: '204',
+        code: '205',
         msg: '密码不正确'
     },
     'code wrong': {

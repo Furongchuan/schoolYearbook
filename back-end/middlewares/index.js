@@ -41,8 +41,10 @@ const getCode = (req, res, next) => {
         img:captcha.data, // svg图片
         mark: mark
     }
-    
-    res.send(codeData)
+    res.send({
+        code: 200,
+        data: codeData
+    })
 }
 
 

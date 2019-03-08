@@ -39,6 +39,7 @@ function register (e) { // 注册逻辑
       let data = await postRegister({
         username, password, nickname, scienceName
       })
+      if( !data ) return false;
       $('.btn-change-type').click()
     }catch(e){
       console.log(e,'e')

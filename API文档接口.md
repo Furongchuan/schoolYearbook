@@ -18,7 +18,10 @@ api-server： http://localhost: 3000
     * username 账号
     * password 密码 
     * nickname 用户名 
-
+响应参数署名：
+    * code 状态
+    * msg 信息
+    * data null;
 2. 登录
 
 接口地址：/users/login
@@ -36,6 +39,7 @@ api-server： http://localhost: 3000
 请求方式：post
 请求示例：http://localhost:3000/api/v1/users/code
 响应参数说明：
+    * code 状态
     * img 验证码图片
     * mark 加密后的验证码
 
