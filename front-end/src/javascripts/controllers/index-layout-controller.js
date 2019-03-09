@@ -3,10 +3,10 @@ import appHeader from '@views/layout/app-header.html'
 import appNav from '@views/layout/app-nav.html'
 import appContent from '@views/layout/app-content.html'
 
-const render = () => {
+const render = () => {  
     let $wrapper = $('#app') // 主体容器
     $wrapper.append(appHeader) // 放入头部
-    
+
     $wrapper.append(appContent) // 放入内容区域
 
     $wrapper.append(appNav) // 放入导航

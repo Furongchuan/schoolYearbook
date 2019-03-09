@@ -5,7 +5,8 @@ import { getCodeImg, postLogin } from '@models/admin-model';
 
 const getCode = async ($code) => { // 验证码
   try{
-    let data = await getCodeImg();
+    let getData = await getCodeImg();
+    let data = getData.data
     $code.html(data.img);
     $.cookie('mark',data.mark)
   }catch(e){
@@ -24,13 +25,15 @@ const login = (e) => { //登录逻辑
     let password = $loginInps.password.val()
     let code = $loginInps.code.val()
     try{
-      let data = await postLogin({
+      let getData = await postLogin({
         username, password, code
       })
+      let data = getData.data
       if( !data ) {
         $('.code').click()
         return false
       }
+      localStorage.token = data.token
       window.location.href = '/'
     }catch(e){
       console.log(e)
@@ -56,32 +59,6 @@ const render = (req, res, next) => {
   res.render(appAdminrLogin);
   bindEvents();
 }
-
-// function login (e) { // 登录逻辑
-//   e.preventDefault()
-//   let username = $loginInps.username.val()
-//   let password = $loginInps.password.val()
-//   let code = $loginInps.code.val()
-  
-//   $.ajax({
-//       url: '/api/v1/users/login',
-//       type: 'post',
-//       data: {
-//           username,
-//           password,
-//           code
-//       }
-//   }).done(function(res) {
-//       if ( res.code === 200 ) {
-//           window.location.href = '/'
-//       } else {
-//           getCode() // 如果登录失败更改验证码
-//       }
-//       console.log(res)
-//   })
-// }
-
-
 
 export default {
   render

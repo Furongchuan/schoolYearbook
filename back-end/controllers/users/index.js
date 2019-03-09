@@ -1,5 +1,6 @@
 const usersModel = require('../../models/users');
-const { Decrypt } = require('../../modules/crypto');
+const jwt = require('jsonwebtoken');
+const { Decrypt, Encrypt } = require('../../modules/crypto');
 
 const register = async (req, res, next) => {
 
@@ -39,10 +40,22 @@ const login = async (req, res, next) => {
       next('unreal password')
       return false;
   }
+  // 存储 token   返回给前端
+  let token = jwt.sign({
+    uid: usernameExist[0]._id,
+    username: usernameExist[0].username
+  }, 'true')
+  res.responseData = { 
+    token: Encrypt(token)
+  }
   next('success')
 }
-
+// 登录验证
+const auth = (tokenInfo, req, res, next) => {
+  next('success')
+}
 module.exports = {
   register,
-  login
+  login,
+  auth
 }

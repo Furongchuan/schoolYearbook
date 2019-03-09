@@ -47,7 +47,7 @@ const getClassmateItems =  async ({
     totalNo: count // 总数量
   }
   return classmateItemSchema
-          .find({})
+          .find({},'name telephone eMail nowPlace headImg job')
           .limit(~~pageSize)
           .skip((pageNo - 1) * pageSize)
           .then(res => {

@@ -36,5 +36,9 @@ const status = {
         code: '206',
         msg: '验证码不正确'
     },
+    'not login': {
+        code: '207',
+        msg: '没有登录，请重新登录'
+    },
 }
 module.exports = status 

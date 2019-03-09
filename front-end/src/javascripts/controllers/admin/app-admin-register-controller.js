@@ -4,7 +4,8 @@ import { postRegister } from '@models/admin-model';
 import { getClassmateScienceName } from '@models/classmate-model'
 
 const render = async (req, res, next) => { 
-  let data = await getClassmateScienceName();
+  let getData = await getClassmateScienceName();
+  let data = getData.data
   res.render(template.compile(appAdminrRgister)({
     items: data
 }))

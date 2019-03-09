@@ -13,7 +13,7 @@ const request = (options) => {
                     }
                     // 成功处理
                     // $.Toast('Success', '数据请求成功', 'success')
-                    resolve(res.data)
+                    resolve(res)
                 } else {
                     // 除请求失败处理
                     // $.Toast('Warning', '数据请求失败', 'warning')

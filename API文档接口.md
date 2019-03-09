@@ -32,6 +32,10 @@ api-server： http://localhost: 3000
     * username 账号
     * password 密码 
     * code 验证码
+响应参数说明：
+    * code 状态
+    * msg 信息 
+    * token 身份验证令牌
 
 3. 验证码
 接口地址：/users/code
@@ -43,6 +47,16 @@ api-server： http://localhost: 3000
     * img 验证码图片
     * mark 加密后的验证码
 
+3. 验证登录
+接口地址：/users/auth
+返回格式：json
+请求方式：get
+请求示例：http://localhost:3000/api/v1/users/auth
+请求参数说明：
+    * token localStorage.token
+响应参数说明：
+    * code 状态
+    * msg 信息 
 #### 同学录信息接口
 
 1. 同学录信息获取
@@ -55,6 +69,8 @@ api-server： http://localhost: 3000
     * pageSize 请求数据长度
     * pageNo 当前页码数 
 响应参数说明：
+    * code 状态
+    * msg 信息 
     * items 用户信息集合
         * name 用户名字
         * telephone 电话号码
@@ -91,6 +107,8 @@ api-server： http://localhost: 3000
 请求方式： get
 请求示例：http://localhost:3000/api/v1/personal/science
 响应参数说明
+    * code 状态
+    * msg 信息 
     * scienceName 院系名称
 
 2. 获取当前登录用户的用户信息
@@ -99,3 +117,6 @@ api-server： http://localhost: 3000
 请求示例：http://localhost:3000/api/v1/personal/users
 请求参数说明：
     * user 当前登录用户的用户名
+响应参数说明：
+    * code 状态
+    * msg 信息 

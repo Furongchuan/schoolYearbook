@@ -17,7 +17,7 @@ let userItemSchema = new mongoose.Schema({
 // 单数会自动加s （集合）
 let Items = mongoose.model('items', userItemSchema);
 
-// 检验是否已存在
+// 检验账户是否已存在
 const checkAlready = (option) => {
     return Items.find(option)
 }
@@ -27,11 +27,11 @@ const register = (params) => {
     username: params.username,
     password: params.password,
     name: params.nickname,
-    telephone: '请填写电话号码',
-    eMail: '请填写邮箱',
-    nowPlace: '请填写当前居住地',
+    telephone: '',
+    eMail: '',
+    nowPlace: '',
     headImg: 'http://localhost:3000/images/uoload/v2-4f2c2235830db1a336ac27dd08a2f438_r.jpg',
-    job: '请填写当前工作',
+    job: '',
     scienceName: params.scienceName
   }
   return Items.insertMany(item)
