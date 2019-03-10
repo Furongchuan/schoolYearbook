@@ -8,10 +8,13 @@ const userLoginAuth = () => {
         }
     })
 }
-
+// 获取用户数据
 const getUserInfo = () => {
     return request({
-        url: '/api/v1/users/info'
+        url: '/api/v1/users/info',
+        data: {
+            token: localStorage.token
+        }
     })
 }
 

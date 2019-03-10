@@ -14,13 +14,6 @@ const getClassmateScienceName = () => {
         url:'api/v1/personal/science'
     })
 }
-// 获取当前登录用户的信息
-const getUserMsessage = (data) => {
-    return request({
-        url:'api/v1/personal/users',
-        data
-    })
-}
 
 // 建立websocket连接
 const connectionWebsocket = () => {
@@ -31,6 +24,5 @@ const connectionWebsocket = () => {
 export  {
     getClassmateItems,
     getClassmateScienceName,
-    getUserMsessage,
     connectionWebsocket
 }

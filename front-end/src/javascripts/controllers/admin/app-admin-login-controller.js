@@ -30,6 +30,8 @@ const login = (e) => { //登录逻辑
       })
       let data = getData.data
       if( !data ) {
+        $loginInps.password.val('')
+        $loginInps.code.val('')
         $('.code').click()
         return false
       }

@@ -54,8 +54,19 @@ const login = async (req, res, next) => {
 const auth = (tokenInfo, req, res, next) => {
   next('success')
 }
+
+const info = async (tokenInfo, req, res, next) => {
+  let usernameExist = await usersModel.checkAlready({ 
+    _id: tokenInfo.uid
+  })
+  let item = Object.assign({}, usernameExist[0]._doc)
+  delete item.password
+  res.responseData = item;
+  next('success')
+}
 module.exports = {
   register,
   login,
-  auth
+  auth,
+  info
 }

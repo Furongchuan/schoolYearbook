@@ -2,10 +2,11 @@ import angel from '@utils/angel'
 import appHeader from '@views/layout/app-header.html'
 import appNav from '@views/layout/app-nav.html'
 import appContent from '@views/layout/app-content.html'
-
-const render = () => {  
+import { getUserInfo }from '@models';
+const render = async () => {  
     let $wrapper = $('#app') // 主体容器
-    $wrapper.append(appHeader) // 放入头部
+    let $wrapperHeader = $('#app .main-header') // 头部容器
+   
 
     $wrapper.append(appContent) // 放入内容区域
 
@@ -15,6 +16,12 @@ const render = () => {
         let url = $(this).data('route') // 获取url
         angel.emit('go', url) // 进行跳转
     })
+    let getData = await getUserInfo();
+    let data = getData.data
+    $wrapperHeader.html(template.compile(appHeader)({
+        info: data
+    })) // 放入头部
+    
 }
 
 export default {

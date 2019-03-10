@@ -112,11 +112,19 @@ api-server： http://localhost: 3000
     * scienceName 院系名称
 
 2. 获取当前登录用户的用户信息
-接口地址： /personal/users
+接口地址： /users/info
 请求方式： get
-请求示例：http://localhost:3000/api/v1/personal/users
+请求示例：http://localhost:3000/api/v1/users/info
 请求参数说明：
-    * user 当前登录用户的用户名
+    * token localStorage.token
 响应参数说明：
     * code 状态
     * msg 信息 
+    * items 用户信息集合
+        * name 用户名字
+        * telephone 电话号码
+        * eMail 邮箱
+        * nowPlace 目前所在地
+        * headImg 头像路径
+        * user 用户账户名
+        * job 工作

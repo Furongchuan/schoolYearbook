@@ -9,9 +9,9 @@ userLoginAuthAction()
             indexController.render()
             router.init()
         }).catch(err => {
-            console.log('catch', err)
+            console.log('userLoginAuthActionError')
             $.Toast('Warning', '请登陆后进入', 'warning')
-            setTimeout(() => {
-                window.location.href = '/admin.html'
-            }, 1000)
+            // setTimeout(() => {
+            //     window.location.href = '/admin.html'
+            // })
         })
