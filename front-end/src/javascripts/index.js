@@ -11,7 +11,7 @@ userLoginAuthAction()
         }).catch(err => {
             console.log('userLoginAuthActionError')
             $.Toast('Warning', '请登陆后进入', 'warning')
-            // setTimeout(() => {
-            //     window.location.href = '/admin.html'
-            // })
+            setTimeout(() => {
+                window.location.href = '/admin.html'
+            })
         })

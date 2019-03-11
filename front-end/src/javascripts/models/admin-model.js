@@ -1,5 +1,5 @@
 import request from '@utils/request'
-
+// 注册
 const postRegister = (data) => {
   return request({
       url: '/api/v1/users/register',
@@ -10,13 +10,13 @@ const postRegister = (data) => {
     }
   })
 }
-
+// 获取验证码
 const getCodeImg = (data) => {
   return request({
       url: '/api/v1/users/code',
   })
 }
-
+// 登录
 const postLogin = (data) => {
   return request({
       url: '/api/v1/users/login',
