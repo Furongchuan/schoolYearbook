@@ -128,3 +128,32 @@ api-server： http://localhost: 3000
         * headImg 头像路径
         * user 用户账户名
         * job 工作
+
+3. 上传头像
+接口地址： /file/upload/img
+请求方式： post
+请求示例：http://localhost:3000/api/v1/file/upload/img
+请求参数说明：
+    * formData 上传的图片
+响应参数说明：
+    * code 状态
+    * msg 返回信息 
+    * data 用户信息集合
+        * img 图片路径
+
+3. 修改用户信息
+接口地址： /personal/updata
+请求方式： post
+请求示例：http://localhost:3000/api/v1/personal/updata
+请求参数说明：
+    * name 用户姓名
+    * telephone 用户电话
+    * eMail 用户邮箱
+    * nowPlace 用户目前所在地
+    * job 用户职业
+    * scienceName 用户所在院校
+    * img 用户头像地址
+    * _id 用户ID
+响应参数说明：
+    * code 状态
+    * msg 返回信息 

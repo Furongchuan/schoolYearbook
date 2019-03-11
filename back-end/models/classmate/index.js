@@ -12,12 +12,15 @@ let SchemaFactory = function(schema,collection) {
 }
 // 同学录item Schema （规定文档的格式）
 let classmateItemSchema = SchemaFactory({
+  username: String,
+  password: String,
   name: String,
-  telephone:Number,
+  telephone:String,
   eMail: String,
   nowPlace: String,
   headImg: String,
-  job: String
+  job: String,
+  scienceName: String
 },'item');
 
 // 同学录chat Schema
@@ -72,10 +75,15 @@ const postChatMessage = (params) => {
   return classmateChatSchema.insertMany(params)
 }
 
-
+// 更新同学录信息
+const updataInfo = (params) => {
+  let id = params._id;
+  return classmateItemSchema.update({_id: id}, params)
+}
 module.exports = { 
   getClassmateItems,
   getClassmateScience,
   postChatMessage,
-  getChatMessage
+  getChatMessage,
+  updataInfo
 }

@@ -15,6 +15,7 @@ var classmateRouter = require('./routes/classmate');
 var personalRouter = require('./routes/personal');
 var usersRouter = require('./routes/users')
 var socketRouter = require('./routes/socket');
+var fileRouter = require('./routes/file')
 var app = express();
 expressWs(app);
 
@@ -35,6 +36,7 @@ app.use(baseUrl + '/', indexRouter);
 app.use(baseUrl + '/classmate', classmateRouter);
 app.use(baseUrl + '/personal', personalRouter);
 app.use(baseUrl + '/users', usersRouter);
+app.use(baseUrl + '/file', fileRouter);
 app.use('/ws',socketRouter)
 
 // catch 404 and forward to error handler

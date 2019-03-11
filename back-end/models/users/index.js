@@ -30,7 +30,7 @@ const register = (params) => {
     telephone: '',
     eMail: '',
     nowPlace: '',
-    headImg: 'http://localhost:3000/images/uoload/v2-4f2c2235830db1a336ac27dd08a2f438_r.jpg',
+    headImg: 'images/uoload/head-1552307983906.jpg',
     job: '',
     scienceName: params.scienceName
   }

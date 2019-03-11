@@ -15,9 +15,18 @@ const getPresonalItems = async (req, res, next) => {
  
 }
 
-
+const postUpdataInfo = async (req, res, next) => {
+  try{
+    await classmateModel.updataInfo(req.body)
+    next('success')
+  }catch(e){
+    console.log(e)
+    next('error')
+  }
+}
 
 
 module.exports = {
-  getPresonalItems
+  getPresonalItems,
+  postUpdataInfo
 }
