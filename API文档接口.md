@@ -157,3 +157,14 @@ api-server： http://localhost: 3000
 响应参数说明：
     * code 状态
     * msg 返回信息 
+    
+4. 修改用户密码
+接口地址： /personal/updataPassword
+请求方式： post
+请求示例：http://localhost:3000api/v1/personal/updataPassword
+请求参数说明：
+    * password 用户新密码
+    * token token令牌
+响应参数说明：
+    * code 状态
+    * msg 返回信息 

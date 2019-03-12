@@ -80,10 +80,17 @@ const updataInfo = (params) => {
   let id = params._id;
   return classmateItemSchema.update({_id: id}, params)
 }
+
+// 更新同学录密码
+const updataPassword = (params) => {
+  let id = params._id;
+  return classmateItemSchema.update({_id: id}, params)
+}
 module.exports = { 
   getClassmateItems,
   getClassmateScience,
   postChatMessage,
   getChatMessage,
-  updataInfo
+  updataInfo,
+  updataPassword
 }

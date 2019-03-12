@@ -1,5 +1,5 @@
 
-import appPersonal from '@views/routes/app-personal-set.html'
+import appPersonalSet from '@views/routes/app-personal-set.html'
 import { getClassmateScienceName } from '@models/classmate-model'
 import { getUserInfo } from '@models'
 import { postInfo }from '@models/personal'
@@ -19,7 +19,7 @@ const render = async (req, res, next) => {
     scienceItem.unshift({scienceName: userData.scienceName})
     userData.scienceItem = scienceItem;
 
-    res.render(template.compile(appPersonal)({
+    res.render(template.compile(appPersonalSet)({
         info: userData
     }))
 
@@ -51,7 +51,7 @@ async function updataInfo (e) {
         nowPlace: $('#set-nowPlace').val(),
         job: $('#set-job').val(),
         scienceName: $('#set-scienceName').val(),
-        img: 'images' + $('.profile-user-img').attr('src').split('images')[1],
+        headImg: 'images' + $('.profile-user-img').attr('src').split('images')[1],
         _id: id
     }
     await postInfo(info)

@@ -12,6 +12,18 @@ const postInfo = (data) => {
   })
 }
 
+const postPassword = (data) => {
+  return request({
+      url: '/api/v1/personal/updataPassword',
+      type: 'post',
+      data,
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded'
+    }
+  })
+}
+
 export {
-  postInfo
+  postInfo,
+  postPassword
 }

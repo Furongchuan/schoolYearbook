@@ -25,8 +25,22 @@ const postUpdataInfo = async (req, res, next) => {
   }
 }
 
+const postUpdataPassword = async (tokenInfo, req, res, next) => {
+  let data = {
+    _id: tokenInfo.uid,
+    password: req.body.password
+  }
+  try{
+    await classmateModel.updataPassword(data)
+    next('success')
+  }catch(e){
+    console.log(e)
+    next('error')
+  }
+}
 
 module.exports = {
   getPresonalItems,
-  postUpdataInfo
+  postUpdataInfo,
+  postUpdataPassword
 }
