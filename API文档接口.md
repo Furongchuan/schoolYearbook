@@ -47,7 +47,7 @@ api-server： http://localhost: 3000
     * img 验证码图片
     * mark 加密后的验证码
 
-3. 验证登录
+4. 验证登录
 接口地址：/users/auth
 返回格式：json
 请求方式：get
@@ -141,7 +141,7 @@ api-server： http://localhost: 3000
     * data 用户信息集合
         * img 图片路径
 
-3. 修改用户信息
+4. 修改用户信息
 接口地址： /personal/updata
 请求方式： post
 请求示例：http://localhost:3000/api/v1/personal/updata
@@ -158,7 +158,7 @@ api-server： http://localhost: 3000
     * code 状态
     * msg 返回信息 
     
-4. 修改用户密码
+5. 修改用户密码
 接口地址： /personal/updataPassword
 请求方式： post
 请求示例：http://localhost:3000api/v1/personal/updataPassword

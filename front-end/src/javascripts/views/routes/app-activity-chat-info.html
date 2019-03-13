@@ -1,8 +1,8 @@
 {{each items}}
-<div class="direct-chat-msg {{$value.name === '大广' ? 'right' : ''}}">
+<div class="direct-chat-msg {{$value.name === $value.username ? 'right' : ''}}">
   <div class="direct-chat-info clearfix">
-      <span class="direct-chat-name {{$value.name === '大广' ? 'pull-right' : 'pull-left'}}">{{$value.name}}</span>
-      <span class="direct-chat-timestamp {{$value.name === '大广' ? 'pull-left' : 'pull-right'}}">{{$value.date}}</span>
+      <span class="direct-chat-name {{$value.name === $value.username ? 'pull-right' : 'pull-left'}}">{{$value.name}}</span>
+      <span class="direct-chat-timestamp {{$value.name === $value.username ? 'pull-left' : 'pull-right'}}">{{$value.date}}</span>
   </div>
   <div class="direct-chat-text">
       {{$value.message}}

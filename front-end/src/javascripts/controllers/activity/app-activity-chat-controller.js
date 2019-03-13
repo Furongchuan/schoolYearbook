@@ -32,8 +32,12 @@ function websocketEstablishment (req, res, next) {
 function renderChatInfo (data) {
     let arr = [];
     if(Array.isArray(data)) {
+        data.forEach((element) => {
+            element.username = localStorage.username 
+        })
         arr = data;
     }else if(typeof data === 'object'){
+        data.username = localStorage.username 
         arr.push(data)
     }
     $('.direct-chat-messages').append(
@@ -44,7 +48,7 @@ function renderChatInfo (data) {
 }
 // 发送信息
 function sendMessage(socket) {
-    let name = '大广';
+    let name = localStorage.username;
     let message = $('#message').val();
     $('#message').val('');
     socket.send(JSON.stringify({

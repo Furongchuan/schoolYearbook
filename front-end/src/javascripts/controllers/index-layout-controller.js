@@ -18,6 +18,7 @@ const render = async () => {
     })
     let getData = await getUserInfo();
     let data = getData.data
+    localStorage.username = data.username
     $wrapperHeader.html(template.compile(appHeader)({
         info: data
     })) // 放入头部
