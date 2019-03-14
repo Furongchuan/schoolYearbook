@@ -26,17 +26,18 @@ const render = async (req, res, next) => {
 function renderItems() {
     return new Promise(async (resolve) => {
          // 获取列表数据
-    let getData = await getClassmateItems({
-        pageSize, pageNo
-    })
-    let data = getData.data;
-    pages = data.pages
-    $('#class-items-content').html(
-        template.compile(appClassmateItemsContent)({
-            items: data.items
-        }))
-    resolve(data)
-    })
+        let id = JSON.parse(localStorage.user).id
+        let getData = await getClassmateItems({
+            pageSize, pageNo, id
+        })
+        let data = getData.data;
+        pages = data.pages
+        $('#class-items-content').html(
+            template.compile(appClassmateItemsContent)({
+                items: data.items
+            }))
+        resolve(data)
+        })
 }
  
 export default {

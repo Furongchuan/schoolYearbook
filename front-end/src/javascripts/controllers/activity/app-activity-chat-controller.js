@@ -1,17 +1,22 @@
 
 import appActivityChat from '@views/routes/app-activity-chat.html'
 import appActivityChatInfo from'@views/routes/app-activity-chat-info.html'
-import { connectionWebsocket } from '@models/classmate-model'
+import { connectionWebsocket } from '@models/active-model'
 
 const render = (req, res, next) => { 
-    res.render(appActivityChat)  
+    
     websocketEstablishment(req, res, next);
 }
 function websocketEstablishment (req, res, next) {
+    let scienceName = JSON.parse(localStorage.user).scienceName
     let socket = connectionWebsocket(); // websocket连接
     socket.addEventListener('open', function (event) {
+        res.render(appActivityChat)  
+        socket.send(JSON.stringify({
+            scienceName
+        }))
         $('#send').click('click', (e) => {
-            sendMessage(socket)
+            sendMessage(socket,scienceName)
         })
         $('#message').keyup((e) => {
             if ( e.keyCode === 13 ) {
@@ -30,29 +35,32 @@ function websocketEstablishment (req, res, next) {
 }
 // 渲染聊天对话框
 function renderChatInfo (data) {
-    let arr = [];
+    // console.log(data)
+    let items = {
+        arr:[],
+        scienceName:'',
+        userID: JSON.parse(localStorage.user).id
+    }
     if(Array.isArray(data)) {
-        data.forEach((element) => {
-            element.username = localStorage.username 
-        })
-        arr = data;
+        items.arr = data;
     }else if(typeof data === 'object'){
-        data.username = localStorage.username 
-        arr.push(data)
+        data.username = JSON.parse(localStorage.user).username 
+        items.arr.push(data)
     }
     $('.direct-chat-messages').append(
         template.compile(appActivityChatInfo)({
-            items: arr
+            items: items
         })
     ) 
 }
 // 发送信息
-function sendMessage(socket) {
-    let name = localStorage.username;
+function sendMessage(socket,scienceName) {
+    let name = JSON.parse(localStorage.user).username;
+    let _id = JSON.parse(localStorage.user).id;
     let message = $('#message').val();
     $('#message').val('');
     socket.send(JSON.stringify({
-        name, message
+        name, message, scienceName, _id
     }))
 }
 export default {

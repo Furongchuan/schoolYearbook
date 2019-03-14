@@ -2,11 +2,11 @@ const classmateModel = require('../../models/classmate')
 
 // 处理同学录信息列表获取
 const getClassmateItems = async (req, res, next) => {
-  let { pageSize, pageNo } = req.query;
+  let { pageSize, pageNo, id } = req.query;
   try{
     // 利用res或者req来进行路由中间件间的传参
     let data = await classmateModel.getClassmateItems({
-      pageSize, pageNo
+      pageSize, pageNo, id
     });
     
     res.responseData = {

@@ -18,7 +18,12 @@ const render = async () => {
     })
     let getData = await getUserInfo();
     let data = getData.data
-    localStorage.username = data.username
+    let usr = {
+        id: data._id,
+        username: data.username,
+        scienceName: data.scienceName
+    }
+    localStorage.user = JSON.stringify(usr)
     $wrapperHeader.html(template.compile(appHeader)({
         info: data
     })) // 放入头部
