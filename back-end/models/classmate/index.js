@@ -28,6 +28,13 @@ let classmateScienceSchema = SchemaFactory({
   scienceName: String
 },'science')
 
+let classmatePhoto = SchemaFactory({
+  name: String,
+  headImg: String,
+  text: String,
+  src: String
+},'photo');
+
 const geTotalPage = (id) => {
   return classmateItemSchema.find({'_id': {$ne: id}}).count()
 }
@@ -72,9 +79,15 @@ const updataPassword = (params) => {
   let id = params._id;
   return classmateItemSchema.update({_id: id}, params)
 }
+
+// 上传朋友圈信息
+const updataPhoto = (params) => {
+  return classmatePhoto.insertMany(params)
+}
 module.exports = { 
   getClassmateItems,
   getClassmateScience,
   updataInfo,
-  updataPassword
+  updataPassword,
+  updataPhoto
 }

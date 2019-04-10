@@ -1,75 +1,96 @@
 <section class="content">
-
+  <button type="button" class="btn lf btn-primary btn-lg" id="mine">我的朋友圈</button>
+  <div class="outputMine hide">
+    <div class="box box-primary">
+      <form role="form" id="publish-form">
+        <div class="box-body">
+          <div class="form-group">
+            <textarea id="text-content" class="form-control" rows="3" placeholder="..." ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="item-title">照片</label>
+            <button type="button" class="btn btn-primary img-btn" id="toClick">上传</button>
+            <input type="file" class="hidden" id="item-img" accept="image/*">
+            <img class="img-responsive pad hide" id='photo'width=20%  alt="Photo">
+          </div>
+        </div>
+        <div class="box-footer">
+          <button type="submit" class="btn btn-primary" id="sure">确定</button>
+        </div>
+      </form>
+    </div>
+  </div>
   <!-- row -->
-  <div class="row">
-    <div class="col-md-12">
-      <!-- The time line -->
-      <ul class="timeline">
-        <!-- timeline time label -->
-       
-        <!-- timeline item -->
-        <li>
+  <div class="row"></div>
+  <div class="col-md-12">
+    <!-- The time line -->
 
-          <div class="timeline-item">
-            <span class="time"><i class="fa fa-clock-o"></i> 5 days ago</span>
+    <ul class="timeline">
+      <!-- timeline time label -->
 
-            <h3 class="timeline-header"><a href="#/classmate/items">Mr. Doe</a> uploaded new photos</h3>
+      <!-- timeline item -->
+      <li>
 
-            <div class="timeline-body">
-              <div class="box-body">
-                <img class="img-responsive pad" width=100% height=100% src="http://localhost:3000/images/upload/dog-1552395224956.jpg" alt="Photo">
-  
-                <p>I took this photo this morning. What do you guys think?</p>
-              </div>
-            </div>
-            <div class="box-footer box-comments">
-              <div class="box-comment">
-                <!-- User image -->
-                <img class="img-circle img-sm" src="http://localhost:3000/images/upload/dog-1552395224956.jpg" alt="User Image">
+        <div class="timeline-item">
+          <span class="time"><i class="fa fa-clock-o"></i> 5 days ago</span>
 
-                <div class="comment-text">
-                      <span class="username">
-                        Maria Gonzales
-                      </span><!-- /.username -->
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                </div>
-                <!-- /.comment-text -->
-              </div>
-              <!-- /.box-comment -->
-              <div class="box-comment">
-                <!-- User image -->
-                <img class="img-circle img-sm" src="http://localhost:3000/images/upload/dog-1552395224956.jpg" alt="User Image">
+          <h3 class="timeline-header"><a href="#/classmate/items">Mr. Doe</a></h3>
 
-                <div class="comment-text">
-                      <span class="username">
-                        Luna Stark
-                      </span><!-- /.username -->
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                </div>
-                <!-- /.comment-text -->
-              </div>
-              <!-- /.box-comment -->
-            </div>
-            <div class="box-footer">
-              <form action="#" method="post">
-                <img class="img-responsive img-circle img-sm" src="http://localhost:3000/images/upload/dog-1552395224956.jpg" alt="Alt Text">
-                <!-- .img-push is used to add margin to elements next to floating images -->
-                <div class="img-push">
-                  <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
-                </div>
-              </form>
+          <div class="timeline-body">
+            <div class="box-body">
+              <img class="img-responsive pad" width=20% src="http://localhost:3000/images/upload/dog-1552395224956.jpg"
+                alt="Photo">
+              <p>I took this photo this morning. What do you guys think?</p>
             </div>
           </div>
-        </li>
-        <!-- END timeline item -->
-      </ul>
-    </div>
-    <!-- /.col -->
+          <div class="box-footer box-comments">
+            <div class="box-comment">
+              <!-- User image -->
+              <img class="img-circle img-sm" src="http://localhost:3000/images/upload/dog-1552395224956.jpg"
+                alt="User Image">
+
+              <div class="comment-text">
+                <span class="username">
+                  Maria Gonzales
+                </span><!-- /.username -->
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+              </div>
+              <!-- /.comment-text -->
+            </div>
+            <!-- /.box-comment -->
+            <div class="box-comment">
+              <!-- User image -->
+              <img class="img-circle img-sm" src="http://localhost:3000/images/upload/dog-1552395224956.jpg"
+                alt="User Image">
+
+              <div class="comment-text">
+                <span class="username">
+                  Luna Stark
+                </span><!-- /.username -->
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+              </div>
+              <!-- /.comment-text -->
+            </div>
+            <!-- /.box-comment -->
+          </div>
+          <div class="box-footer">
+            <form action="#" method="post">
+              <img class="img-responsive img-circle img-sm"
+                src="http://localhost:3000/images/upload/dog-1552395224956.jpg" alt="Alt Text">
+              <!-- .img-push is used to add margin to elements next to floating images -->
+              <div class="img-push">
+                <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
+              </div>
+            </form>
+          </div>
+        </div>
+      </li>
+      <!-- END timeline item -->
+    </ul>
+  </div>
+  <!-- /.col -->
   </div>
   <!-- /.row -->
-
-
-
 </section>

@@ -21,6 +21,8 @@ const render = async () => {
     let usr = {
         id: data._id,
         username: data.username,
+        name:data.name,
+        headImg:data.headImg,
         scienceName: data.scienceName
     }
     localStorage.user = JSON.stringify(usr)

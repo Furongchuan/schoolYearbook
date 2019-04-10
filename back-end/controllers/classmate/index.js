@@ -18,12 +18,19 @@ const getClassmateItems = async (req, res, next) => {
     console.log('getClassmateItems',e)
     next('error')
   }
- 
 }
 
-
-
+const postClassmatePhoto = async (req, res, next) => {
+  try {
+    await classmateModel.updataPhoto(req.body)
+    next('success')
+} catch (e) {
+    console.log(e)
+    next('error')
+  }
+}
 
 module.exports = {
-  getClassmateItems
+  getClassmateItems,
+  postClassmatePhoto
 }
