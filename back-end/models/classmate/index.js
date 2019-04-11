@@ -84,10 +84,16 @@ const updataPassword = (params) => {
 const updataPhoto = (params) => {
   return classmatePhoto.insertMany(params)
 }
+
+// 获取朋友圈信息
+const getPhotoItems = () => {
+  return classmatePhoto.find({})
+}
 module.exports = { 
   getClassmateItems,
   getClassmateScience,
   updataInfo,
   updataPassword,
-  updataPhoto
+  updataPhoto,
+  getPhotoItems
 }

@@ -10,7 +10,13 @@ const postPhotoItem = (data) => {
     }
   })
 }
+const getPhotoItem = (data) => {
+  return request({
+    url:'/api/v1/classmate/photoItem',
+  })
+}
 
 export  {
-  postPhotoItem
+  postPhotoItem,
+  getPhotoItem
 }

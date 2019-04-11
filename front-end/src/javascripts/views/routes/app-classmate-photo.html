@@ -27,66 +27,24 @@
 
     <ul class="timeline">
       <!-- timeline time label -->
-
+      {{each info}}
       <!-- timeline item -->
       <li>
-
         <div class="timeline-item">
-          <span class="time"><i class="fa fa-clock-o"></i> 5 days ago</span>
-
-          <h3 class="timeline-header"><a href="#/classmate/items">Mr. Doe</a></h3>
-
+          <h3 class="timeline-header"><a href="#/classmate/items">{{$value.name}}</a></h3>
           <div class="timeline-body">
             <div class="box-body">
-              <img class="img-responsive pad" width=20% src="http://localhost:3000/images/upload/dog-1552395224956.jpg"
+              {{if $value.src}}
+              <img class="img-responsive pad" width=20% src="{{$value.src}}"
                 alt="Photo">
-              <p>I took this photo this morning. What do you guys think?</p>
+                {{/if}}
+              <p>{{$value.text}}</p>
             </div>
           </div>
-          <div class="box-footer box-comments">
-            <div class="box-comment">
-              <!-- User image -->
-              <img class="img-circle img-sm" src="http://localhost:3000/images/upload/dog-1552395224956.jpg"
-                alt="User Image">
-
-              <div class="comment-text">
-                <span class="username">
-                  Maria Gonzales
-                </span><!-- /.username -->
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
-              </div>
-              <!-- /.comment-text -->
-            </div>
-            <!-- /.box-comment -->
-            <div class="box-comment">
-              <!-- User image -->
-              <img class="img-circle img-sm" src="http://localhost:3000/images/upload/dog-1552395224956.jpg"
-                alt="User Image">
-
-              <div class="comment-text">
-                <span class="username">
-                  Luna Stark
-                </span><!-- /.username -->
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
-              </div>
-              <!-- /.comment-text -->
-            </div>
-            <!-- /.box-comment -->
-          </div>
-          <div class="box-footer">
-            <form action="#" method="post">
-              <img class="img-responsive img-circle img-sm"
-                src="http://localhost:3000/images/upload/dog-1552395224956.jpg" alt="Alt Text">
-              <!-- .img-push is used to add margin to elements next to floating images -->
-              <div class="img-push">
-                <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
-              </div>
-            </form>
-          </div>
+   
         </div>
       </li>
+      {{/each}}
       <!-- END timeline item -->
     </ul>
   </div>

@@ -1,5 +1,5 @@
 import appClassmatePhoto from '@views/routes/app-classmate-photo.html';
-import { postPhotoItem } from '@models/classmate-photo'
+import { postPhotoItem, getPhotoItem } from '@models/classmate-photo'
 const bindEvents= () => {
   let $submit = $('#mine')
   let $sure = $('#sure')
@@ -53,9 +53,13 @@ function uploadImage (inp) {
       $.Toast('Danger', '上传出错', 'error')
   })
 }
-const render = (req, res, next) => {
-  res.render(appClassmatePhoto)  
-  bindEvents()
+const render = async (req, res, next) => {
+  let allData = await getPhotoItem()
+  let data = allData.data
+  console.log(data)
+  res.render(template.compile(appClassmatePhoto)({
+    info: data
+  }))
 }
 export default {
   render
