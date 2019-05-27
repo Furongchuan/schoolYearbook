@@ -1,0 +1,18 @@
+<div class="box box-primary">
+  <div class="box-header with-border">
+    <h3 class="box-title">群文件</h3>
+  </div>
+  <!-- /.box-header -->
+  <!-- form start -->
+  <form role="form">
+    <div class="box-body">
+      <div class="form-group">
+        <input type="file" id="exampleInputFile">
+      </div>
+    </div>
+    {{each item}}
+    <p class="file-down"><span>{{$value.fileNmae}}</span><a href="{{$value.filePath}}" download="{{$value.fileNmae}}">下载</a></p>
+    {{/each}}
+    <!-- /.box-body -->
+  </form>
+</div>

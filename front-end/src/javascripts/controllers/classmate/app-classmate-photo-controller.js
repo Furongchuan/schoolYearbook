@@ -1,5 +1,5 @@
 import appClassmatePhoto from '@views/routes/app-classmate-photo.html';
-import { postPhotoItem, getPhotoItem } from '@models/classmate-photo'
+import { postPhotoItem, getPhotoItem, postPhotoText } from '@models/classmate-photo'
 const bindEvents= () => {
   let $submit = $('#mine')
   let $sure = $('#sure')
@@ -8,7 +8,10 @@ const bindEvents= () => {
   let $itemImg = $('#item-img')
   let $photo = $('#photo')
   let $outputMine = $(".outputMine")
+  let $pinglun = $('.input-sm')
+
   $submit.click(() => {
+    console.log($outputMine)
     $outputMine.removeClass('hide')
   })
   $toClick.click(() => {
@@ -27,6 +30,20 @@ const bindEvents= () => {
     }
     $outputMine.addClass('hide')
     await postPhotoItem({text, src, name, headImg})
+  })
+  $pinglun.keyup( e => {
+    if(!e.target.value) return
+    if ( e.keyCode === 13 ) {
+      let name = JSON.parse(localStorage.user).name;
+      let pinlun = {
+        text:e.target.value,
+        name,
+        id:e.target.dataset.id
+      }
+      // console.log(pinlun,JSON.stringify(pinlun))
+      postPhotoText(pinlun)
+      e.target.value = ''
+    }
   })
 }
 // 上传图片业务逻辑  action
@@ -60,6 +77,7 @@ const render = async (req, res, next) => {
   res.render(template.compile(appClassmatePhoto)({
     info: data
   }))
+  bindEvents()
 }
 export default {
   render

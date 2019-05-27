@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/classmate', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/school', { useNewUrlParser: true });
 
 // 用户信息 Schema （规定文档的格式）
 
@@ -30,7 +30,7 @@ const register = (params) => {
     telephone: '',
     eMail: '',
     nowPlace: '',
-    headImg: 'images/uoload/head-1552307983906.jpg',
+    headImg: 'images/upload/head-1552307983906.jpg',
     job: '',
     scienceName: params.scienceName
   }

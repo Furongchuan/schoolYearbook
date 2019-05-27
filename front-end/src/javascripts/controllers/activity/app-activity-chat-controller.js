@@ -9,9 +9,13 @@ const render = (req, res, next) => {
 }
 function websocketEstablishment (req, res, next) {
     let scienceName = JSON.parse(localStorage.user).scienceName
+    res.render( template.compile(appActivityChat)({
+        scienceName: scienceName
+      }))  
+   
     let socket = connectionWebsocket(); // websocket连接
     socket.addEventListener('open', function (event) {
-        res.render(appActivityChat)  
+
         socket.send(JSON.stringify({
             scienceName
         }))
@@ -55,7 +59,7 @@ function renderChatInfo (data) {
 }
 // 发送信息
 function sendMessage(socket,scienceName) {
-    let name = JSON.parse(localStorage.user).username;
+    let name = JSON.parse(localStorage.user).name;
     let _id = JSON.parse(localStorage.user).id;
     let message = $('#message').val();
     $('#message').val('');

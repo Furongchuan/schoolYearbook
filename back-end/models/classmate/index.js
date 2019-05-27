@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/classmate', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/school', { useNewUrlParser: true });
 
 
 
@@ -32,7 +32,8 @@ let classmatePhoto = SchemaFactory({
   name: String,
   headImg: String,
   text: String,
-  src: String
+  src: String,
+  pinglun: Array
 },'photo');
 
 const geTotalPage = (id) => {
@@ -77,6 +78,7 @@ const updataInfo = (params) => {
 // 更新同学录密码
 const updataPassword = (params) => {
   let id = params._id;
+  console.log(params)
   return classmateItemSchema.update({_id: id}, params)
 }
 
@@ -89,11 +91,24 @@ const updataPhoto = (params) => {
 const getPhotoItems = () => {
   return classmatePhoto.find({})
 }
+const updataPhotoPingLun = async (params) => {
+  let { text, name, id } = params
+  let { pinglun } = await classmatePhoto.findOne({_id: id})
+  pinglun.push({text,name})
+  // console.log(pinglun)
+  let newP = {
+    _id:id,
+    pinglun
+  }
+  return classmatePhoto.updateOne({_id: id}, newP)
+
+}
 module.exports = { 
   getClassmateItems,
   getClassmateScience,
   updataInfo,
   updataPassword,
   updataPhoto,
-  getPhotoItems
+  getPhotoItems,
+  updataPhotoPingLun
 }

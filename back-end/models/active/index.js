@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/classmate', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/school', { useNewUrlParser: true });
 
 // 同学录 Schema工厂
 let SchemaFactory = function(schema,collection) {

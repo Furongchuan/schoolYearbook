@@ -49,8 +49,21 @@ const getPhotoItems = async (req, res, next) => {
  
 }
 
+const postClassmatePhotoText = async (req, res, next) => {
+  try{
+    let { text, name, id } = req.body
+    await classmateModel.updataPhotoPingLun({text, name, id})
+
+    next('success')
+  }catch(e){
+    console.log(e)
+    next('error')
+  }
+}
+
 module.exports = {
   getClassmateItems,
   postClassmatePhoto,
-  getPhotoItems
+  getPhotoItems,
+  postClassmatePhotoText
 }

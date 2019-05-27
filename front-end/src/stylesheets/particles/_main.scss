@@ -19,10 +19,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    .classmate-items-primary {
-      
-  
-    }
 }
 .lf{
     position: relative;
@@ -33,4 +29,11 @@
     position: absolute;
     z-index: 99;
     width: 50%;
+}
+.content-wrapper{
+    overflow: hidden;
+}
+.file-down{
+    display: block;
+    padding: 10px;
 }

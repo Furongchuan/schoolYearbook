@@ -114,9 +114,38 @@ const uploadImage = (req, res, next) => {
         } else {
             next()
         }
-    })
+    })  
+}
 
-    
+const uploadFile = (req, res, next) => {
+    // 控制图片存储位置与信息
+    var storage = multer.diskStorage({
+        // 控制存储位置
+        destination: function (req, file, cb) {
+            cb(null, path.join(__dirname, '../public/file'))
+        },
+        filename: function (req, file, cb) {
+            // 处理存储时的文件名字
+            let extname = path.extname(file.originalname)
+            let basename = path.basename(file.originalname, extname)
+            
+            let filename = basename + '-' + Date.now() + extname
+            // 挂载在req.body上方便传递给下一个中间件
+            req.body.fileNmae = filename
+            cb(null, filename)
+        }
+    })
+    let upload = multer({ storage }).single('file') // 上传文件的中间件
+
+    upload(req, res, (err) => {
+        if ( err ) {
+            console.log(err)
+            req.error = err
+            next()
+        } else {
+            next()
+        }
+    })  
 }
 
 module.exports = {
@@ -124,5 +153,6 @@ module.exports = {
     response,
     getCode,
     authLogin,
-    uploadImage
+    uploadImage,
+    uploadFile
 }

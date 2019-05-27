@@ -2,16 +2,19 @@
   <button type="button" class="btn lf btn-primary btn-lg" id="mine">我的朋友圈</button>
   <div class="outputMine hide">
     <div class="box box-primary">
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool"><i class="fa fa-times"></i></button>
+      </div>
       <form role="form" id="publish-form">
         <div class="box-body">
           <div class="form-group">
-            <textarea id="text-content" class="form-control" rows="3" placeholder="..." ></textarea>
+            <textarea id="text-content" class="form-control" rows="3" placeholder="..."></textarea>
           </div>
           <div class="form-group">
             <label for="item-title">照片</label>
             <button type="button" class="btn btn-primary img-btn" id="toClick">上传</button>
             <input type="file" class="hidden" id="item-img" accept="image/*">
-            <img class="img-responsive pad hide" id='photo'width=20%  alt="Photo">
+            <img class="img-responsive pad hide" id='photo' width=20% alt="Photo">
           </div>
         </div>
         <div class="box-footer">
@@ -35,13 +38,31 @@
           <div class="timeline-body">
             <div class="box-body">
               {{if $value.src}}
-              <img class="img-responsive pad" width=20% src="{{$value.src}}"
-                alt="Photo">
-                {{/if}}
+              <img class="img-responsive pad" width=20% src="{{$value.src}}" alt="Photo">
+              {{/if}}
               <p>{{$value.text}}</p>
             </div>
+            {{each $value.pinglun}}
+            <div class="box-footer box-comments">
+              <div class="box-comment">
+                <div class="comment-text">
+                  <span class="username">
+                    {{$value.name}}
+                  </span><!-- /.username -->
+                  {{$value.text}}
+                </div>
+                <!-- /.comment-text -->
+              </div>
+              <!-- /.box-comment -->
+            </div>
+            {{/each}}
+            <div class="box-footer">
+              <div class="img-push">
+                <input type="text" class="form-control input-sm" placeholder="请输入评论" data-id={{$value._id}}>
+              </div>
+            </div>
           </div>
-   
+
         </div>
       </li>
       {{/each}}

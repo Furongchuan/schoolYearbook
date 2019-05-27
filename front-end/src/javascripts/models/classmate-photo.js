@@ -15,8 +15,18 @@ const getPhotoItem = (data) => {
     url:'/api/v1/classmate/photoItem',
   })
 }
-
+const postPhotoText = (data) => {
+  return request({
+    url: '/api/v1/classmate/photoText',
+    type: 'post',
+    data,
+    headers: {
+      'content-type': 'application/x-www-form-urlencoded'
+  }
+})
+}
 export  {
   postPhotoItem,
-  getPhotoItem
+  getPhotoItem,
+  postPhotoText
 }

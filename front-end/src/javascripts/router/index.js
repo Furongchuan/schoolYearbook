@@ -3,6 +3,7 @@ import SMERouter from 'sme-router'
 import angel from '@utils/angel'
 import appHomeController from '@controllers/home/app-home-controller'
 import appActivityChatController from '@controllers/activity/app-activity-chat-controller'
+import appActivityFileController from '@controllers/activity/app-activity-file-controller'
 import appClassmateItemsController from '@controllers/classmate/app-classmate-items-controller'
 import appClassmatePhotoController from '@controllers/classmate/app-classmate-photo-controller'
 import appPersonalSetContorller from '@controllers/personal/app-personal-set-controller'
@@ -24,6 +25,7 @@ const init = () => {
     router.route('/home', appHomeController.render)
     router.route('/personal',appHomeController.render)
     router.route('/activity/chat', appActivityChatController.render)
+    router.route('/activity/file', appActivityFileController.render)
     router.route('/classmate/items', appClassmateItemsController.render)
     router.route('/classmate/photo', appClassmatePhotoController.render)
     router.route('/personal/set', appPersonalSetContorller.render)
